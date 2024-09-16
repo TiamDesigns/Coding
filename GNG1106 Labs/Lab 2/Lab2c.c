@@ -13,6 +13,9 @@ int main()
 
     printf("Ah, the length and width of the rectangle are %.1f ", length);
     printf("and %.1f respectively.\n", width);
+
+    float perimeter = 2*(length+width); 
+    printf("The perimeter of the rectangle is %.1f.\n", perimeter);
     
     return 0;
 }

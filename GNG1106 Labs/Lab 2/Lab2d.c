@@ -16,8 +16,11 @@ int main()
     printf("Ah, the length and width of the rectangle are %.1f ", length);
     printf("and %.1f respectively.\n", width);
 
+    float perimeter = 2*(length+width); 
+    printf("The perimeter of the rectangle is %.1f centimeters.\n", perimeter);
+
     float area = length * width;
-    printf("The area of the rectangle is %.1f centimers.\n", area);
+    printf("The area of the rectangle is %.1f centimeters.\n", area);
 
     return 0;
 }
