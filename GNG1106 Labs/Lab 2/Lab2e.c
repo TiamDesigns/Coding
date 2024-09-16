@@ -18,5 +18,8 @@ int main()
     //double perimeter = 2*(length+width); 
     //printf("The perimeter of the rectangle is %.1lf centimeters.\n", perimeter);
 
+    double area = length * width;
+    printf("The area of the rectangle is %.1lf centimeters.\n", area);
+
     return 0;
 }
