@@ -11,8 +11,8 @@ int main()
     //scanf("%lf", &length); //scan for user input for variable length 
     //scanf("%lf", &width); //scan for user input for variable length 
 
-    printf("Ah, the length and width of the rectangle are %.1f ", length);
-    printf("and %.1f respectively.\n", width);
+    printf("Ah, the length and width of the rectangle are %.1f and %.1f respectively.\n", length, width);
+    //printf("and %.1f respectively.\n", width);
 
     //double perimeter = 2*(length+width); 
     //printf("The perimeter of the rectangle is %.1lf.\n", perimeter);

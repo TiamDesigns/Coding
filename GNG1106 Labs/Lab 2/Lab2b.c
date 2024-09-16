@@ -7,7 +7,7 @@ float width, length; //float variables for length and width
 int main()
 {
     printf("Please enter the length then width of the rectangle in centimeters. (Integer only)\n"); //prompt user to enter data for variable length
-    scanf("%d, %d", &length, &width); //scan for user input for variable length and width
+    scanf("%f, %f", &length, &width); //scan for user input for variable length and width
     //scanf("%f", &length); //scan for user input for variable length 
     //scanf("%f", &width); //scan for user input for variable length 
 
