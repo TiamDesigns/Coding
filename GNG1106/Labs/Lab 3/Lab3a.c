@@ -10,11 +10,11 @@ int main()
     
     int v = x % 2;
 
-    if (v == 0){
+    if (v == 0)
         printf("Even");
-    }
+    
 
-    else {
+    else
         printf("Odd");
-    }
+    
 }
