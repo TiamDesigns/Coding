@@ -9,7 +9,7 @@ int main()
     scanf("%d", &integer);
 
     if (integer % 2 == 0)
-        printf("Even,");
+        printf("Even");
 
     else
         printf("Odd");
