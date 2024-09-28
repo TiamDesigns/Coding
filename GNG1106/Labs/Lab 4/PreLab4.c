@@ -6,7 +6,10 @@ int main()
     int count = 0;
     int last, current;
 
-    for (int i = 1; i <= 15; i++) {
+    printf("Enter integer 1: ");
+    scanf("%d", &last);
+
+    for (int i = 2; i <= 15; i++) {
         printf("Enter integer %d: ", i);
         scanf("%d", &current);
 

@@ -3,26 +3,18 @@
 int main()
 {
     
-    int x;
-    printf("... x:\n");
-    scanf("%d", &x);
-    if (x<5)
+    int a, b;
+    char op;
+
+    printf("Enter an integer arithmetic expression involving a single operation (leave no space)\n");
+    scanf("%d%c%d", &a, &op, &b);
+    switch(op)
     {
-        x=x+5;
-        printf("A");
+
+        //Enter your code here
+
     }
-    else if (x<8)
-    {
-        x=x-2;
-        printf("B");
-    }
-    else 
-        printf("C");
-    
-    if(x>6)
-        printf("D");
-    printf("\n");
+
     return 0;
-
-
+    
 }
