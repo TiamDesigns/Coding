@@ -22,7 +22,7 @@ int main()
             break;
         case '/':
             if (b != 0)
-                printf("Result: %d\n", a / b);  // Integer division
+                printf("Result: %d\n", a / b);  
             else
                 printf("Error: Division by zero is not allowed.\n");
             break;
