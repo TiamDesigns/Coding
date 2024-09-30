@@ -3,28 +3,28 @@
 int main()
 {
     
-    int a, b;
+    float a, b;
     char op;
 
     printf("Enter an integer arithmetic expression involving a single operation (leave no space)\n");
-    scanf("%d%c%d", &a, &op, &b);
+    scanf("%f%c%f", &a, &op, &b);
     switch(op)
     {
 
         case '+':
-            printf("Result: %d\n", a + b);
+            printf("Result: %f\n", a + b);
             break;
         case '-':
-            printf("Result: %d\n", a - b);
+            printf("Result: %f\n", a - b);
             break;
         case '*':
-            printf("Result: %d\n", a * b);
+            printf("Result: %f\n", a * b);
             break;
         case '/':
             if (b != 0)
-                printf("Result: %d\n", a / b);  // Integer division
+                printf("Result: %f\n", a / b);  // Integer division
             else
-                printf("Error: Division by zero is not allowed.\n");
+                printf("Error: a is not divisible by b.\n");
             break;
         default:
             printf("Error: Invalid operator.\n");

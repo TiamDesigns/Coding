@@ -21,10 +21,10 @@ int main()
             printf("Result: %d\n", a * b);
             break;
         case '/':
-            if (b != 0)
+            if (b != 0 && a%b==0)
                 printf("Result: %d\n", a / b);  // Integer division
             else
-                printf("Error: Division by zero is not allowed.\n");
+                printf("Error: a is not divisible by b.\n");
             break;
         default:
             printf("Error: Invalid operator.\n");
