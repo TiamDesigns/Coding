@@ -22,7 +22,7 @@ int main()
             break;
         case '/':
             if (b != 0)
-                printf("Result: %f\n", a / b);  // Integer division
+                printf("Result: %f\n", a / b); 
             else
                 printf("Error: a is not divisible by b.\n");
             break;
