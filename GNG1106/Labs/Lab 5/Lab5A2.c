@@ -9,13 +9,13 @@ double funccosx(double x)
 {
     double term = 1;
     double cosx = 1; 
-    int n=0;
+    int sign = -1; 
+    int n=1;
 
-    while(term<-0.0000000000001 || term>0.0000000000001) 
+    while(term<0.0000000000001 || term>0.0000000000001) 
     {
+        term *= -1 / (2*n*(2*n-1));
         n++;
-        term *= (-x * x / (2*n * (2*n-1)));
-        cosx += term;
     }
 
     return cosx;
