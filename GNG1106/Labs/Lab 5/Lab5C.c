@@ -8,35 +8,33 @@ double degtorad(double degrees)
     return degrees * 3.1415926535 / 180.0;
 }
 
-//Function for cos(x) operation
 double funccosx(double x) 
 {
     double term = 1;
     double cosx = 1; 
-    int sign = -1; 
+    int n=0;
 
-    for (int i = 2; i <= 2000; i += 2) 
+    while(term<-0.0000000000001 || term>0.0000000000001) 
     {
-        term *= (x * x) / (i * (i - 1));
-        cosx += sign * term;
-        sign = -sign;
+        n++;
+        term *= (-x * x / (2*n * (2*n-1)));
+        cosx += term;
     }
 
     return cosx;
 }
 
-//Function for sin(x) operation
-double funcsinx(double x)
+double funcsinx(double x) 
 {
     double term = x;
     double sinx = x; 
-    int sign = -1; 
+    int n=0;
 
-    for (int i = 3; i <= 2000; i += 2) 
+    while(term<-0.0000000000001 || term>0.0000000000001) 
     {
-        term *= (x * x) / (i * (i - 1));
-        sinx += sign * term;
-        sign = -sign;
+        n++;
+        term *= (-x * x) / (2 * n * (2*n+1));
+        sinx += term;
     }
 
     return sinx;
