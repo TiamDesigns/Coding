@@ -2,7 +2,6 @@
 
 #define tolerance 0.0000001
 
-//Function to convert input degrees to radians. 
 double degtorad(double degrees) 
 {
     return degrees * 3.1415926535 / 180.0;
