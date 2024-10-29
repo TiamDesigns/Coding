@@ -1,25 +1,28 @@
 #include <stdio.h>
 
-void swapHeadTail(int x, int y)
-{
-    int z;
-    z=x;
-    x=y;
-    y=z;
+void swapHeadTail(int arr[], int length) {
+    if (length > 1) { 
+        int temp = arr[0];
+        arr[0] = arr[length - 1];
+        arr[length - 1] = temp;
+    }
 }
 
-int main()
-{
+int main() {
+    int a[4] = {1, 2, 3, 4};
+    int b[5] = {10, 20, 30, 40, 50};
 
-    int a, b;
-    printf("Enter int values a and b\n");
-    scanf("%d%d", &a, &b);
+    swapHeadTail(a, 4);
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
 
-    swap(a, b);
-
-    printf("a=%d, b=%d", a, b);
-
+    swapHeadTail(b, 5);
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", b[i]);
+    }
+    printf("\n");
 
     return 0;
-
 }
