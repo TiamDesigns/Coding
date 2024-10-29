@@ -29,7 +29,7 @@ double funcsinx(double x)
     double sinx = x; 
     int n=0;
 
-    while(term<-0.0000000000001 || term>0.0000000000001) 
+    while(term<-0.0000000000000001 || term>0.0000000000000001) 
     {
         n++;
         term *= (-x * x) / (2 * n * (2*n+1));
