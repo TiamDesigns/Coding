@@ -20,10 +20,10 @@ OPTION_LICENSE, OPTION_STICKER, OPTION_TICKET);
 			break;
 		case OPTION_STICKER:
 			printf("Go to counter %d\n", COUNTER_STICKER);
-                        break;
+            break;
         case OPTION_TICKET:               
 			printf("Go to counter %d\n", COUNTER_TICKET);
-                        break;
+            break;
 		default:
 			printf("invalid selection\n");
 
