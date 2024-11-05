@@ -8,7 +8,7 @@ void get_s(int *s) {
 }
 
 void CSL(int *a, int *s) {
-    int shift = *s % N; 
+    int shift = *s; 
     int temp[shift];
 
     for (int i = 0; i < shift; i++) {
