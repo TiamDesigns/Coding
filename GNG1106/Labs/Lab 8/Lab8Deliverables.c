@@ -328,6 +328,7 @@ void printRec(STUDENT_REC rec) {
 
 
 void printClassRec(STUDENT_REC *classRec, int numOfStudents) {
+    //I realize in hindsight that the following print could have been done using for loops as it is defined above how many assignments etc. there are
     printf("ID\tA-1\tA-2\tICE-1\tICE-2\tICE-3\tLab-1\tLab-2\tLab-3\tLab-4\tMidterm\tFinal\tA-Avg\tL-Avg\tI-Avg\tOverall\n"); // Print the header row for student records
     for (int i = 0; i < numOfStudents; i++) { // Loop through each student record
         printRec(classRec[i]); // Print the current student's record by calling printRec function
