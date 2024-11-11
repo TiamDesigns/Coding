@@ -280,14 +280,14 @@ int main()
 		printf("Enter\n");
 		printf("\t%d for SORT BY SINGLE ASSIGNMENT\n", SORT_BY_SINGLE_ASSIGNMENT);
 		printf("\t%d for SORT BY SINGLE ICE\n", SORT_BY_SINGLE_ICE);
-                printf("\t%d for SORT BY SINGLE LAB\n", SORT_BY_SINGLE_LAB);       
-                printf("\t%d for SORT BY ASSIGNMENT AVERAGE\n", SORT_BY_ASSIGNMENT_AVG);
-                printf("\t%d for SORT BY ICE AVERAGE\n", SORT_BY_ICE_AVG);
-                printf("\t%d for SORT BY LAB AVERAGE\n", SORT_BY_LAB_AVG);
-                printf("\t%d for SORT BY MIDTERM\n", SORT_BY_MIDTERM);
-                printf("\t%d for SORT BY FINAL EXAM\n", SORT_BY_FINAL_EXAM);
+        printf("\t%d for SORT BY SINGLE LAB\n", SORT_BY_SINGLE_LAB);       
+        printf("\t%d for SORT BY ASSIGNMENT AVERAGE\n", SORT_BY_ASSIGNMENT_AVG);
+        printf("\t%d for SORT BY ICE AVERAGE\n", SORT_BY_ICE_AVG);
+        printf("\t%d for SORT BY LAB AVERAGE\n", SORT_BY_LAB_AVG);
+        printf("\t%d for SORT BY MIDTERM\n", SORT_BY_MIDTERM);
+        printf("\t%d for SORT BY FINAL EXAM\n", SORT_BY_FINAL_EXAM);
 		printf("\t%d for SORT BY OVERALL MARK\n", SORT_BY_OVERALL_MARK);
-                printf("\t%d for SORT BY ID\n", SORT_BY_ID);
+        printf("\t%d for SORT BY ID\n", SORT_BY_ID);
 		scanf("%d", &sort_mode);
 		if ((sort_mode==SORT_BY_SINGLE_ICE)||(sort_mode==SORT_BY_SINGLE_ASSIGNMENT)||(sort_mode==SORT_BY_SINGLE_LAB))
 		{
@@ -317,7 +317,7 @@ void printRec(STUDENT_REC rec) {
     for (int i = 0; i < NUM_ASSIGNMENTS; i++) printf("%.1f\t", rec.assignment_mark[i]); // Print each assignment mark with one decimal and a tab
     for (int i = 0; i < NUM_ICES; i++) printf("%.1f\t", rec.ice_mark[i]); // Print each ICE mark with one decimal and a tab
     for (int i = 0; i < NUM_LABS; i++) printf("%.1f\t", rec.lab_mark[i]); // Print each lab mark with one decimal and a tab
-    printf("%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n", // Print midterm, final, assignment average, lab average, ICE average, and overall marks
+    printf("%.1f\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n", // Print midterm, final, assignment average, lab average, ICE average, and overall marks
            rec.midterm_mark,
            rec.final_mark,
            rec.assignment_average_mark,
