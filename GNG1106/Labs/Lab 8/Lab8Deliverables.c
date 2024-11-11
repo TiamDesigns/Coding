@@ -312,13 +312,12 @@ int main()
 *******************************************************************************************************/
 
 
-void printRec(STUDENT_REC rec)
-{
-    printf("%d\t", rec.ID);
-    for (int i = 0; i < NUM_ASSIGNMENTS; i++) printf("%.1f\t", rec.assignment_mark[i]);
-    for (int i = 0; i < NUM_ICES; i++) printf("%.1f\t", rec.ice_mark[i]);
-    for (int i = 0; i < NUM_LABS; i++) printf("%.1f\t", rec.lab_mark[i]);
-    printf("%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n",
+void printRec(STUDENT_REC rec) {
+    printf("%d\t", rec.ID); // Print the student's ID followed by a tab
+    for (int i = 0; i < NUM_ASSIGNMENTS; i++) printf("%.1f\t", rec.assignment_mark[i]); // Print each assignment mark with one decimal and a tab
+    for (int i = 0; i < NUM_ICES; i++) printf("%.1f\t", rec.ice_mark[i]); // Print each ICE mark with one decimal and a tab
+    for (int i = 0; i < NUM_LABS; i++) printf("%.1f\t", rec.lab_mark[i]); // Print each lab mark with one decimal and a tab
+    printf("%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n", // Print midterm, final, assignment average, lab average, ICE average, and overall marks
            rec.midterm_mark,
            rec.final_mark,
            rec.assignment_average_mark,
@@ -327,61 +326,58 @@ void printRec(STUDENT_REC rec)
            rec.overall_mark);
 }
 
+
 void printClassRec(STUDENT_REC *classRec, int numOfStudents) {
-    printf("ID\tA-1\tA-2\tICE-1\tICE-2\tICE-3\tLab-1\tLab-2\tLab-3\tLab-4\tMidterm\tFinal\tA-Avg\tL-Avg\tI-Avg\tOverall\n");
-    for (int i = 0; i < numOfStudents; i++) {
-        printRec(classRec[i]);
+    printf("ID\tA-1\tA-2\tICE-1\tICE-2\tICE-3\tLab-1\tLab-2\tLab-3\tLab-4\tMidterm\tFinal\tA-Avg\tL-Avg\tI-Avg\tOverall\n"); // Print the header row for student records
+    for (int i = 0; i < numOfStudents; i++) { // Loop through each student record
+        printRec(classRec[i]); // Print the current student's record by calling printRec function
     }
 }
 
 
 
-void completeClassRecords(STUDENT_REC *classRec, int numOfStudents)
-{
-    for (int i = 0; i < numOfStudents; i++) {
-        STUDENT_REC *rec = &classRec[i];
+
+void completeClassRecords(STUDENT_REC *classRec, int numOfStudents) {
+    for (int i = 0; i < numOfStudents; i++) { // Loop through each student record
+        STUDENT_REC *rec = &classRec[i]; // Pointer to the current student record
         
-        // Calculate averages
-        float assignmentSum = 0, iceSum = 0, labSum = 0;
-        for (int j = 0; j < NUM_ASSIGNMENTS; j++) assignmentSum += rec->assignment_mark[j];
-        for (int j = 0; j < NUM_ICES; j++) iceSum += rec->ice_mark[j];
-        for (int j = 0; j < NUM_LABS; j++) labSum += rec->lab_mark[j];
+        float assignmentSum = 0, iceSum = 0, labSum = 0; // Initialize sums for assignment, ICE, and lab marks
+        for (int j = 0; j < NUM_ASSIGNMENTS; j++) assignmentSum += rec->assignment_mark[j]; // Sum assignment marks
+        for (int j = 0; j < NUM_ICES; j++) iceSum += rec->ice_mark[j]; // Sum ICE marks
+        for (int j = 0; j < NUM_LABS; j++) labSum += rec->lab_mark[j]; // Sum lab marks
 
-        rec->assignment_average_mark = assignmentSum / NUM_ASSIGNMENTS;
-        rec->ice_average_mark = iceSum / NUM_ICES;
-        rec->lab_average_mark = labSum / NUM_LABS;
+        rec->assignment_average_mark = assignmentSum / NUM_ASSIGNMENTS; // Calculate assignment average
+        rec->ice_average_mark = iceSum / NUM_ICES; // Calculate ICE average
+        rec->lab_average_mark = labSum / NUM_LABS; // Calculate lab average
 
-        // Calculate overall mark
-        rec->overall_mark = ((rec->assignment_average_mark / MAX_MARK_PER_ASSIGNMENT) * WEIGHT_ASSIGNMENTS +
-                             (rec->ice_average_mark / MAX_MARK_PER_ICE) * WEIGHT_ICES +
-                             (rec->lab_average_mark / MAX_MARK_PER_LAB) * WEIGHT_LABS +
-                             (rec->midterm_mark / MAX_MARK_MIDTERM) * WEIGHT_MIDTERM +
-                             (rec->final_mark / MAX_MARK_FINAL_EXAM) * WEIGHT_FINAL_EXAM) * 100;
+        rec->overall_mark = ((rec->assignment_average_mark / MAX_MARK_PER_ASSIGNMENT) * WEIGHT_ASSIGNMENTS + // Calculate weighted assignment contribution
+                             (rec->ice_average_mark / MAX_MARK_PER_ICE) * WEIGHT_ICES + // Calculate weighted ICE contribution
+                             (rec->lab_average_mark / MAX_MARK_PER_LAB) * WEIGHT_LABS + // Calculate weighted lab contribution
+                             (rec->midterm_mark / MAX_MARK_MIDTERM) * WEIGHT_MIDTERM + // Calculate weighted midterm contribution
+                             (rec->final_mark / MAX_MARK_FINAL_EXAM) * WEIGHT_FINAL_EXAM) * 100; // Calculate weighted final contribution, then multiply by 100
     }
 }
 
 
-
-void bubbleSortClassRecords(STUDENT_REC *classRec, int numRecs, int sort_order, int sort_mode, int item_index)
-{
-    for (int i = 0; i < numRecs - 1; i++) {
-        for (int j = 0; j < numRecs - i - 1; j++) {
-            if (shouldAPrecedeB(&classRec[j + 1], &classRec[j], sort_order, sort_mode, item_index)) {
-                STUDENT_REC temp = classRec[j];
-                classRec[j] = classRec[j + 1];
-                classRec[j + 1] = temp;
+void bubbleSortClassRecords(STUDENT_REC *classRec, int numRecs, int sort_order, int sort_mode, int item_index) {
+    for (int i = 0; i < numRecs - 1; i++) { // Outer loop for bubble sort
+        for (int j = 0; j < numRecs - i - 1; j++) { // Inner loop for comparing adjacent elements
+            if (shouldAPrecedeB(&classRec[j + 1], &classRec[j], sort_order, sort_mode, item_index)) { // Check if elements should be swapped
+                STUDENT_REC temp = classRec[j]; // Temporary variable to hold the current element
+                classRec[j] = classRec[j + 1]; // Swap the current element with the next element
+                classRec[j + 1] = temp; // Assign the current element to the next position
             }
         }
     }
-
 }
 
 
-int shouldAPrecedeB(STUDENT_REC *pA, STUDENT_REC *pB, int sort_order, int sort_mode, int item_index)
-{
-    float valA, valB;
+
+
+int shouldAPrecedeB(STUDENT_REC *pA, STUDENT_REC *pB, int sort_order, int sort_mode, int item_index) {
+    float valA, valB; // Variables to hold the sorting values for pA and pB
     
-    switch (sort_mode) {
+    switch (sort_mode) { // Determine the value to compare based on sort_mode
         case SORT_BY_SINGLE_ASSIGNMENT: valA = pA->assignment_mark[item_index]; valB = pB->assignment_mark[item_index]; break;
         case SORT_BY_SINGLE_ICE: valA = pA->ice_mark[item_index]; valB = pB->ice_mark[item_index]; break;
         case SORT_BY_SINGLE_LAB: valA = pA->lab_mark[item_index]; valB = pB->lab_mark[item_index]; break;
@@ -392,12 +388,13 @@ int shouldAPrecedeB(STUDENT_REC *pA, STUDENT_REC *pB, int sort_order, int sort_m
         case SORT_BY_FINAL_EXAM: valA = pA->final_mark; valB = pB->final_mark; break;
         case SORT_BY_OVERALL_MARK: valA = pA->overall_mark; valB = pB->overall_mark; break;
         case SORT_BY_ID: valA = pA->ID; valB = pB->ID; break;
-        default: return 0;
+        default: return 0; // Return 0 if sort_mode is invalid
     }
 
-    if (sort_order == SORT_ASCENDING) return valA < valB;
-    else return valA > valB;
+    if (sort_order == SORT_ASCENDING) return valA < valB; // Return 1 if sorting is ascending and valA < valB
+    else return valA > valB; // Return 1 if sorting is descending and valA > valB
 }
+
 
 
 
