@@ -148,7 +148,6 @@ void getClassRecordsFromFile(STUDENT_REC *classRec, int *pNumStudents, int *pNum
         classRec[i].midterm_mark = rawMidterm;
         classRec[i].final_mark = rawFinal;
 
-        // Read computed averages and overall marks directly as percentages
         fscanf(fp, "%f %f %f %f",
                &classRec[i].assignment_average_mark,
                &classRec[i].ice_average_mark,
