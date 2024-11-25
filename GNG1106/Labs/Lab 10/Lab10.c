@@ -28,7 +28,7 @@ int main() {
                 find_max_beta_for_hospital_capacity();
                 break;
             case 4:
-                printf("exiting the program. goodbye!\n");
+                printf("exiting the program.\n");
                 i = 0;  // stop the loop
                 break;
             default:
@@ -108,7 +108,7 @@ void determine_hospital_impact() {
     scanf("%lf", &beta);
     printf("enter gamma (recovery rate): ");
     scanf("%lf", &gamma);
-    printf("enter θ (hospitalization rate): ");
+    printf("enter theta (hospitalization rate): ");
     scanf("%lf", &theta);
 
     // initial values
